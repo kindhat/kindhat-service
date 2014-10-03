@@ -1,4 +1,8 @@
+<<<<<<< HEAD
   <classpathentry kind="lib" path="libs/google-api-services-userendpoint-v1-rev20141002201042-1.18.0-rc.jar" sourcepath="libs-sources/google-api-services-userendpoint-v1-rev20141002201042-1.18.0-rc-sources.jar"/>
+=======
+  <classpathentry kind="lib" path="libs/google-api-services-userendpoint-v1-rev20141003013056-1.18.0-rc.jar" sourcepath="libs-sources/google-api-services-userendpoint-v1-rev20141003013056-1.18.0-rc-sources.jar"/>
+>>>>>>> branch 'master' of https://github.com/kindhat/kindhat-service.git
   <classpathentry kind="lib" path="libs/google-api-client-1.18.0-rc.jar" sourcepath="libs-sources/google-api-client-1.18.0-rc-sources.jar"/>
   <classpathentry kind="lib" path="libs/google-api-client-android-1.18.0-rc.jar" sourcepath="libs-sources/google-api-client-android-1.18.0-rc-sources.jar"/>
   <classpathentry kind="lib" path="libs/google-api-client-appengine-1.18.0-rc.jar" sourcepath="libs-sources/google-api-client-appengine-1.18.0-rc-sources.jar"/>
