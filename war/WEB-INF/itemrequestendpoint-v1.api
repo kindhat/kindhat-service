@@ -1,0 +1,213 @@
+{
+  "extends" : "thirdParty.api",
+  "abstract" : false,
+  "root" : "https://kindhat-service.appspot.com/_ah/api",
+  "name" : "itemrequestendpoint",
+  "version" : "v1",
+  "defaultVersion" : false,
+  "adapter" : {
+    "bns" : "https://kindhat-service.appspot.com/_ah/spi",
+    "deadline" : 65.0,
+    "type" : "lily"
+  },
+  "auth" : {
+    "allowCookieAuth" : false
+  },
+  "frontendLimits" : {
+    "unregisteredUserQps" : -1,
+    "unregisteredQps" : -1,
+    "unregisteredDaily" : -1,
+    "rules" : [ ]
+  },
+  "cacheControl" : {
+    "type" : "no-cache",
+    "maxAge" : 0
+  },
+  "ownerDomain" : "kindhat.com",
+  "ownerName" : "kindhat.com",
+  "packagePath" : "service.item",
+  "methods" : {
+    "itemrequestendpoint.updateItemRequest" : {
+      "path" : "itemrequest",
+      "httpMethod" : "PUT",
+      "authLevel" : "NONE",
+      "scopes" : [ "https://www.googleapis.com/auth/userinfo.email" ],
+      "audiences" : [ ],
+      "clientIds" : [ "292824132082.apps.googleusercontent.com" ],
+      "rosyMethod" : "com.kindhat.service.item.ItemRequestEndpoint.updateItemRequest",
+      "request" : {
+        "body" : "autoTemplate(backendRequest)",
+        "bodyName" : "resource"
+      },
+      "response" : {
+        "body" : "autoTemplate(backendResponse)"
+      }
+    },
+    "itemrequestendpoint.listItemRequest" : {
+      "path" : "itemrequest",
+      "httpMethod" : "GET",
+      "authLevel" : "NONE",
+      "scopes" : [ "https://www.googleapis.com/auth/userinfo.email" ],
+      "audiences" : [ ],
+      "clientIds" : [ "292824132082.apps.googleusercontent.com" ],
+      "rosyMethod" : "com.kindhat.service.item.ItemRequestEndpoint.listItemRequest",
+      "request" : {
+        "parameters" : {
+          "cursor" : {
+            "type" : "string",
+            "required" : false
+          },
+          "limit" : {
+            "type" : "int32",
+            "required" : false
+          }
+        },
+        "body" : "empty"
+      },
+      "response" : {
+        "body" : "autoTemplate(backendResponse)"
+      }
+    },
+    "itemrequestendpoint.insertItemRequest" : {
+      "path" : "itemrequest",
+      "httpMethod" : "POST",
+      "authLevel" : "NONE",
+      "scopes" : [ "https://www.googleapis.com/auth/userinfo.email" ],
+      "audiences" : [ ],
+      "clientIds" : [ "292824132082.apps.googleusercontent.com" ],
+      "rosyMethod" : "com.kindhat.service.item.ItemRequestEndpoint.insertItemRequest",
+      "request" : {
+        "body" : "autoTemplate(backendRequest)",
+        "bodyName" : "resource"
+      },
+      "response" : {
+        "body" : "autoTemplate(backendResponse)"
+      }
+    },
+    "itemrequestendpoint.getItemRequest" : {
+      "path" : "itemrequest/{id}",
+      "httpMethod" : "GET",
+      "authLevel" : "NONE",
+      "scopes" : [ "https://www.googleapis.com/auth/userinfo.email" ],
+      "audiences" : [ ],
+      "clientIds" : [ "292824132082.apps.googleusercontent.com" ],
+      "rosyMethod" : "com.kindhat.service.item.ItemRequestEndpoint.getItemRequest",
+      "request" : {
+        "parameters" : {
+          "id" : {
+            "type" : "int64",
+            "required" : true
+          }
+        },
+        "body" : "empty"
+      },
+      "response" : {
+        "body" : "autoTemplate(backendResponse)"
+      }
+    },
+    "itemrequestendpoint.removeItemRequest" : {
+      "path" : "itemrequest/{id}",
+      "httpMethod" : "DELETE",
+      "authLevel" : "NONE",
+      "scopes" : [ "https://www.googleapis.com/auth/userinfo.email" ],
+      "audiences" : [ ],
+      "clientIds" : [ "292824132082.apps.googleusercontent.com" ],
+      "rosyMethod" : "com.kindhat.service.item.ItemRequestEndpoint.removeItemRequest",
+      "request" : {
+        "parameters" : {
+          "id" : {
+            "type" : "int64",
+            "required" : true
+          }
+        },
+        "body" : "empty"
+      },
+      "response" : {
+        "body" : "empty"
+      }
+    }
+  },
+  "descriptor" : {
+    "schemas" : {
+      "ItemRequest" : {
+        "id" : "ItemRequest",
+        "type" : "object",
+        "properties" : {
+          "key" : {
+            "$ref" : "Key"
+          },
+          "userId" : {
+            "type" : "string"
+          },
+          "userName" : {
+            "type" : "string"
+          },
+          "requestMessage" : {
+            "type" : "string"
+          },
+          "requestDate" : {
+            "type" : "string",
+            "format" : "date-time"
+          },
+          "requestLength" : {
+            "type" : "string"
+          },
+          "requestAvailability" : {
+            "type" : "string"
+          }
+        }
+      },
+      "Key" : {
+        "id" : "Key",
+        "type" : "object",
+        "properties" : {
+        }
+      },
+      "CollectionResponse_ItemRequest" : {
+        "id" : "CollectionResponse_ItemRequest",
+        "type" : "object",
+        "properties" : {
+          "items" : {
+            "type" : "array",
+            "items" : {
+              "$ref" : "ItemRequest"
+            }
+          },
+          "nextPageToken" : {
+            "type" : "string"
+          }
+        }
+      }
+    },
+    "methods" : {
+      "com.kindhat.service.item.ItemRequestEndpoint.updateItemRequest" : {
+        "request" : {
+          "$ref" : "ItemRequest"
+        },
+        "response" : {
+          "$ref" : "ItemRequest"
+        }
+      },
+      "com.kindhat.service.item.ItemRequestEndpoint.listItemRequest" : {
+        "response" : {
+          "$ref" : "CollectionResponse_ItemRequest"
+        }
+      },
+      "com.kindhat.service.item.ItemRequestEndpoint.insertItemRequest" : {
+        "request" : {
+          "$ref" : "ItemRequest"
+        },
+        "response" : {
+          "$ref" : "ItemRequest"
+        }
+      },
+      "com.kindhat.service.item.ItemRequestEndpoint.getItemRequest" : {
+        "response" : {
+          "$ref" : "ItemRequest"
+        }
+      },
+      "com.kindhat.service.item.ItemRequestEndpoint.removeItemRequest" : {
+      }
+    }
+  }
+}
