@@ -47,8 +47,10 @@ public class UserEndpoint {
 	public User insertUser(User user) {
 		PersistenceManager mgr = getPersistenceManager();
 		try {
-			if (containsUser(user)) {
-				throw new EntityExistsException("Object already exists");
+			if(user.getId() != null) {
+				if (containsUser(user)) {
+					throw new EntityExistsException("Object already exists");
+				}
 			}
 			mgr.makePersistent(user);
 		} finally {
