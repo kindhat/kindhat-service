@@ -1,6 +1,6 @@
 package com.kindhat.service.user;
 
-import com.kindhat.service.user.PMF;
+import com.kindhat.service.common.PMF;
 
 import com.google.api.server.spi.config.Api;
 import com.google.api.server.spi.config.ApiMethod;

@@ -1,26 +1,13 @@
 {
   "files": [
     {
-<<<<<<< HEAD
-      "downloadUrl": "/downloads/userendpoint/v1/20141002201042/java/1.18.0-rc/kindhat.com-userendpoint-v1-20141002201042-java-1.18.0-rc-sources.jar", 
-      "path": "kindhat.com-userendpoint-v1-20141002201042-java-1.18.0-rc-sources.jar", 
-=======
-      "downloadUrl": "/downloads/userendpoint/v1/20141003013056/java/1.18.0-rc/kindhat.com-userendpoint-v1-20141003013056-java-1.18.0-rc-sources.jar", 
-      "path": "kindhat.com-userendpoint-v1-20141003013056-java-1.18.0-rc-sources.jar", 
->>>>>>> branch 'master' of https://github.com/kindhat/kindhat-service.git
+      "downloadUrl": "/downloads/userendpoint/v1/20141007143755/java/1.18.0-rc/kindhat.com-userendpoint-v1-20141007143755-java-1.18.0-rc-sources.jar", 
+      "path": "kindhat.com-userendpoint-v1-20141007143755-java-1.18.0-rc-sources.jar", 
       "type": "source", 
-<<<<<<< HEAD
-      "timestamp": "2014-10-02 20:10"
-=======
-      "timestamp": "2014-10-03 01:30"
->>>>>>> branch 'master' of https://github.com/kindhat/kindhat-service.git
+      "timestamp": "2014-10-07 14:37"
     }, 
     {
-<<<<<<< HEAD
-      "path": "kindhat.com-userendpoint-v1-20141002201042-java-1.18.0-rc.jar.properties", 
-=======
-      "path": "kindhat.com-userendpoint-v1-20141003013056-java-1.18.0-rc.jar.properties", 
->>>>>>> branch 'master' of https://github.com/kindhat/kindhat-service.git
+      "path": "kindhat.com-userendpoint-v1-20141007143755-java-1.18.0-rc.jar.properties", 
       "type": "android.properties"
     }
   ], 
@@ -688,9 +675,5 @@
   "packagePath": "service.user", 
   "language_version": "1.18.0-rc", 
   "id": "userendpoint:v1", 
-<<<<<<< HEAD
-  "revision": 20141002201042
-=======
-  "revision": 20141003013056
->>>>>>> branch 'master' of https://github.com/kindhat/kindhat-service.git
+  "revision": 20141007143755
 }

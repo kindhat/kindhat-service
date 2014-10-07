@@ -1,6 +1,6 @@
 {
  "kind": "discovery#restDescription",
- "etag": "\"koCc_mmAOJe4d9CoedmJUnZeEcg/m1gBWRspSRGb76i5ZcIaPkH6RYw\"",
+ "etag": "\"koCc_mmAOJe4d9CoedmJUnZeEcg/PuE4Z2NLm1Di6WWzfMyEiW_OU2E\"",
  "discoveryVersion": "v1",
  "id": "userendpoint:v1",
  "name": "userendpoint",
@@ -106,6 +106,9 @@
    "id": "User",
    "type": "object",
    "properties": {
+    "aboutMe": {
+     "type": "string"
+    },
     "email": {
      "type": "string"
     },
@@ -118,14 +121,34 @@
     "id": {
      "$ref": "Key"
     },
+    "image": {
+     "type": "string",
+     "format": "byte"
+    },
     "name": {
      "type": "string"
     },
     "postalCode": {
      "type": "string"
     },
+    "requests": {
+     "type": "array",
+     "items": {
+      "$ref": "Key"
+     }
+    },
+    "responses": {
+     "type": "array",
+     "items": {
+      "$ref": "Key"
+     }
+    },
     "termsAndConditions": {
      "type": "boolean"
+    },
+    "when": {
+     "type": "string",
+     "format": "date-time"
     }
    }
   }

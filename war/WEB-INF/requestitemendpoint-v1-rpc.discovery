@@ -1,0 +1,229 @@
+{
+ "kind": "discovery#rpcDescription",
+ "etag": "\"koCc_mmAOJe4d9CoedmJUnZeEcg/OKTWI1f37MQ3spqw7yJraq-KZew\"",
+ "discoveryVersion": "v1",
+ "id": "requestitemendpoint:v1",
+ "name": "requestitemendpoint",
+ "version": "v1",
+ "description": "This is an API",
+ "ownerDomain": "kindhat.com",
+ "ownerName": "kindhat.com",
+ "packagePath": "service.request.item",
+ "icons": {
+  "x16": "http://www.google.com/images/icons/product/search-16.gif",
+  "x32": "http://www.google.com/images/icons/product/search-32.gif"
+ },
+ "protocol": "rpc",
+ "rootUrl": "https://kindhat-service.appspot.com/_ah/api/",
+ "rpcUrl": "https://kindhat-service.appspot.com/_ah/api/rpc",
+ "rpcPath": "/_ah/api/rpc",
+ "parameters": {
+  "alt": {
+   "type": "string",
+   "description": "Data format for the response.",
+   "default": "json",
+   "enum": [
+    "json"
+   ],
+   "enumDescriptions": [
+    "Responses with Content-Type of application/json"
+   ],
+   "location": "query"
+  },
+  "fields": {
+   "type": "string",
+   "description": "Selector specifying which fields to include in a partial response.",
+   "location": "query"
+  },
+  "key": {
+   "type": "string",
+   "description": "API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.",
+   "location": "query"
+  },
+  "oauth_token": {
+   "type": "string",
+   "description": "OAuth 2.0 token for the current user.",
+   "location": "query"
+  },
+  "prettyPrint": {
+   "type": "boolean",
+   "description": "Returns response with indentations and line breaks.",
+   "default": "true",
+   "location": "query"
+  },
+  "quotaUser": {
+   "type": "string",
+   "description": "Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.",
+   "location": "query"
+  },
+  "userIp": {
+   "type": "string",
+   "description": "IP address of the site where the request originates. Use this if you want to enforce per-user limits.",
+   "location": "query"
+  }
+ },
+ "auth": {
+  "oauth2": {
+   "scopes": {
+    "https://www.googleapis.com/auth/userinfo.email": {
+     "description": "View your email address"
+    }
+   }
+  }
+ },
+ "schemas": {
+  "CollectionResponse_Item": {
+   "id": "CollectionResponse_Item",
+   "type": "object",
+   "properties": {
+    "items": {
+     "type": "array",
+     "items": {
+      "$ref": "Item"
+     }
+    },
+    "nextPageToken": {
+     "type": "string"
+    }
+   }
+  },
+  "EnumDuration": {
+   "id": "EnumDuration",
+   "type": "string",
+   "enum": [
+    "DAY",
+    "HOUR",
+    "WEEK"
+   ],
+   "enumDescriptions": [
+    "",
+    "",
+    ""
+   ]
+  },
+  "Item": {
+   "id": "Item",
+   "type": "object",
+   "properties": {
+    "borrowDate": {
+     "type": "string",
+     "format": "date-time"
+    },
+    "category": {
+     "type": "string"
+    },
+    "duration": {
+     "type": "integer",
+     "format": "int32"
+    },
+    "durationType": {
+     "$ref": "EnumDuration"
+    },
+    "item": {
+     "type": "string"
+    },
+    "key": {
+     "$ref": "Key"
+    },
+    "message": {
+     "type": "string"
+    },
+    "responses": {
+     "type": "array",
+     "items": {
+      "$ref": "Key"
+     }
+    },
+    "use": {
+     "type": "string"
+    },
+    "userId": {
+     "$ref": "Key"
+    },
+    "when": {
+     "type": "string",
+     "format": "date-time"
+    }
+   }
+  },
+  "Key": {
+   "id": "Key",
+   "type": "object"
+  }
+ },
+ "methods": {
+  "requestitemendpoint.getItem": {
+   "id": "requestitemendpoint.getItem",
+   "allowGet": true,
+   "parameters": {
+    "id": {
+     "type": "string",
+     "required": true,
+     "format": "int64"
+    }
+   },
+   "parameterOrder": [
+    "id"
+   ],
+   "returns": {
+    "$ref": "Item"
+   },
+   "scopes": [
+    "https://www.googleapis.com/auth/userinfo.email"
+   ]
+  },
+  "requestitemendpoint.insertItem": {
+   "id": "requestitemendpoint.insertItem",
+   "parameters": {
+    "resource": {
+     "$ref": "Item"
+    }
+   },
+   "parameterOrder": [
+    "resource"
+   ],
+   "returns": {
+    "$ref": "Item"
+   },
+   "scopes": [
+    "https://www.googleapis.com/auth/userinfo.email"
+   ]
+  },
+  "requestitemendpoint.listItem": {
+   "id": "requestitemendpoint.listItem",
+   "allowGet": true,
+   "parameters": {
+    "cursor": {
+     "type": "string"
+    },
+    "limit": {
+     "type": "integer",
+     "format": "int32"
+    }
+   },
+   "returns": {
+    "$ref": "CollectionResponse_Item"
+   },
+   "scopes": [
+    "https://www.googleapis.com/auth/userinfo.email"
+   ]
+  },
+  "requestitemendpoint.updateItem": {
+   "id": "requestitemendpoint.updateItem",
+   "parameters": {
+    "resource": {
+     "$ref": "Item"
+    }
+   },
+   "parameterOrder": [
+    "resource"
+   ],
+   "returns": {
+    "$ref": "Item"
+   },
+   "scopes": [
+    "https://www.googleapis.com/auth/userinfo.email"
+   ]
+  }
+ }
+}
