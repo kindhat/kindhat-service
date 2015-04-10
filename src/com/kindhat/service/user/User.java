@@ -6,23 +6,24 @@ import javax.jdo.annotations.IdentityType;
 import javax.jdo.annotations.Persistent;
 import javax.jdo.annotations.PrimaryKey;
 
-import java.lang.String;
 import java.util.Set;
 
-import com.google.appengine.api.datastore.Blob;
-import com.google.appengine.api.datastore.Key;
 import com.google.appengine.datanucleus.annotations.Unowned;
 import com.kindhat.service.common.Entity;
+import com.kindhat.service.common.EnumExternalIdType;
 
 @PersistenceCapable(identityType = IdentityType.APPLICATION)
 public class User extends Entity {
 
 	@PrimaryKey
     @Persistent(valueStrategy = IdGeneratorStrategy.IDENTITY)
-    private Key id;
+    private Long id;
 	
 	@Persistent
 	private String name;
+	
+	@Persistent
+	private String street;
 	
 	@Persistent
 	private String postalCode;
@@ -31,7 +32,7 @@ public class User extends Entity {
 	private String aboutMe;
 	
 	@Persistent
-	private Blob image;
+	private String image;
 	
 	@Persistent
 	private String email;
@@ -40,26 +41,26 @@ public class User extends Entity {
 	private Boolean termsAndConditions;
 	
 	@Persistent
-	private String externalIdType;
+	private EnumExternalIdType externalIdType;
 	
 	@Persistent
 	private String externalId;
 	
 	@Persistent
 	@Unowned
-	private Set<Key> requests;
+	private Set<Long> requests;
 	
 	@Persistent
 	@Unowned
-	private Set<Key> responses;
+	private Set<Long> responses;
 	
 	public User () {}
 
-	public Key getId() {
+	public Long getId() {
 		return id;
 	}
 
-	public void setId(Key id) {
+	public void setId(Long id) {
 		this.id = id;
 	}
 	
@@ -69,6 +70,14 @@ public class User extends Entity {
 
 	public void setName(String name) {
 		this.name = name;
+	}
+	
+	public String getStreet() {
+		return street;
+	}
+
+	public void setStreet(String street) {
+		this.street = street;
 	}
 	
 	public String getPostalCode() {
@@ -95,11 +104,11 @@ public class User extends Entity {
 		this.email = email;
 	}
 	
-	public Blob getImage() {
+	public String getImage() {
 		return image;
 	}
 
-	public void setImage(Blob image) {
+	public void setImage(String image) {
 		this.image = image;
 	}
 	
@@ -111,11 +120,11 @@ public class User extends Entity {
 		this.termsAndConditions = termsAndConditions;
 	}
 	
-	public String getExternalIdType() {
+	public EnumExternalIdType getExternalIdType() {
 		return externalIdType;
 	}
 
-	public void setExternalIdType(String externalIdType) {
+	public void setExternalIdType(EnumExternalIdType externalIdType) {
 		this.externalIdType = externalIdType;
 	}
 	
@@ -127,19 +136,19 @@ public class User extends Entity {
 		this.externalId = externalId;
 	}
 	
-	public Set<Key> getRequests() {
+	public Set<Long> getRequests() {
 		return requests;
 	}
 
-	public void setRequests(Set<Key> requests) {
+	public void setRequests(Set<Long> requests) {
 		this.requests = requests;
 	}
 	
-	public Set<Key> getResponses() {
+	public Set<Long> getResponses() {
 		return responses;
 	}
 
-	public void setResponses(Set<Key> responses) {
+	public void setResponses(Set<Long> responses) {
 		this.responses = responses;
 	}
 }

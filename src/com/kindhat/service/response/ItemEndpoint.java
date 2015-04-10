@@ -139,7 +139,7 @@ public class ItemEndpoint {
 		PersistenceManager mgr = getPersistenceManager();
 		boolean contains = true;
 		try {
-			mgr.getObjectById(Item.class, item.getKey());
+			mgr.getObjectById(Item.class, item.getId());
 		} catch (javax.jdo.JDOObjectNotFoundException ex) {
 			contains = false;
 		} finally {

@@ -1,6 +1,7 @@
 package com.kindhat.service.request;
 
 import com.kindhat.service.common.PMF;
+import com.kindhat.service.user.User;
 
 import com.google.api.server.spi.config.Api;
 import com.google.api.server.spi.config.ApiMethod;
@@ -103,10 +104,20 @@ public class ItemEndpoint {
 	public Item insertItem(Item item) {
 		PersistenceManager mgr = getPersistenceManager();
 		try {
-			if (containsItem(item)) {
-				throw new EntityExistsException("Object already exists");
+			if(item.getId() != null) {
+				if (containsItem(item)) {
+					throw new EntityExistsException("Object already exists");
+				}
 			}
+			//grab parent as we'll add the key to it's request collection
+			User user = mgr.getObjectById(User.class, item.getUserId());
+			
+			//save the item
 			mgr.makePersistent(item);
+			
+			//now add key to the parent's collection
+			user.getRequests().add(item.getId());
+			mgr.makePersistent(user);
 		} finally {
 			mgr.close();
 		}
@@ -139,7 +150,7 @@ public class ItemEndpoint {
 		PersistenceManager mgr = getPersistenceManager();
 		boolean contains = true;
 		try {
-			mgr.getObjectById(Item.class, item.getKey());
+			mgr.getObjectById(Item.class, item.getId());
 		} catch (javax.jdo.JDOObjectNotFoundException ex) {
 			contains = false;
 		} finally {

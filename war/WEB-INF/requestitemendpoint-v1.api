@@ -116,11 +116,13 @@
             "type" : "string",
             "format" : "date-time"
           },
-          "key" : {
-            "$ref" : "Key"
+          "id" : {
+            "type" : "string",
+            "format" : "int64"
           },
           "userId" : {
-            "$ref" : "Key"
+            "type" : "string",
+            "format" : "int64"
           },
           "item" : {
             "type" : "string"
@@ -128,16 +130,14 @@
           "category" : {
             "type" : "string"
           },
-          "duration" : {
-            "type" : "integer"
-          },
-          "durationType" : {
-            "$ref" : "EnumDuration"
-          },
           "use" : {
             "type" : "string"
           },
           "borrowDate" : {
+            "type" : "string",
+            "format" : "date-time"
+          },
+          "returnDate" : {
             "type" : "string",
             "format" : "date-time"
           },
@@ -147,21 +147,11 @@
           "responses" : {
             "type" : "array",
             "items" : {
-              "$ref" : "Key"
+              "type" : "string",
+              "format" : "int64"
             }
           }
         }
-      },
-      "Key" : {
-        "id" : "Key",
-        "type" : "object",
-        "properties" : {
-        }
-      },
-      "EnumDuration" : {
-        "id" : "EnumDuration",
-        "type" : "string",
-        "enum" : [ "HOUR", "DAY", "WEEK" ]
       },
       "CollectionResponse_Item" : {
         "id" : "CollectionResponse_Item",

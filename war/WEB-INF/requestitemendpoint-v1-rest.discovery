@@ -1,6 +1,6 @@
 {
  "kind": "discovery#restDescription",
- "etag": "\"koCc_mmAOJe4d9CoedmJUnZeEcg/OKTWI1f37MQ3spqw7yJraq-KZew\"",
+ "etag": "\"u_zXkMELIlX4ktyNbM2XKD4vK8E/XDu9pWnxilSUXV-9mG47GfsFohc\"",
  "discoveryVersion": "v1",
  "id": "requestitemendpoint:v1",
  "name": "requestitemendpoint",
@@ -89,20 +89,6 @@
     }
    }
   },
-  "EnumDuration": {
-   "id": "EnumDuration",
-   "type": "string",
-   "enum": [
-    "DAY",
-    "HOUR",
-    "WEEK"
-   ],
-   "enumDescriptions": [
-    "",
-    "",
-    ""
-   ]
-  },
   "Item": {
    "id": "Item",
    "type": "object",
@@ -114,18 +100,12 @@
     "category": {
      "type": "string"
     },
-    "duration": {
-     "type": "integer",
-     "format": "int32"
-    },
-    "durationType": {
-     "$ref": "EnumDuration"
+    "id": {
+     "type": "string",
+     "format": "int64"
     },
     "item": {
      "type": "string"
-    },
-    "key": {
-     "$ref": "Key"
     },
     "message": {
      "type": "string"
@@ -133,24 +113,26 @@
     "responses": {
      "type": "array",
      "items": {
-      "$ref": "Key"
+      "type": "string",
+      "format": "int64"
      }
+    },
+    "returnDate": {
+     "type": "string",
+     "format": "date-time"
     },
     "use": {
      "type": "string"
     },
     "userId": {
-     "$ref": "Key"
+     "type": "string",
+     "format": "int64"
     },
     "when": {
      "type": "string",
      "format": "date-time"
     }
    }
-  },
-  "Key": {
-   "id": "Key",
-   "type": "object"
   }
  },
  "methods": {

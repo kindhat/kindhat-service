@@ -59,6 +59,37 @@
         "body" : "autoTemplate(backendResponse)"
       }
     },
+    "userendpoint.getUserByExternalId" : {
+      "path" : "user/{externalId}/{externalIdType}",
+      "httpMethod" : "GET",
+      "authLevel" : "NONE",
+      "scopes" : [ "https://www.googleapis.com/auth/userinfo.email" ],
+      "audiences" : [ ],
+      "clientIds" : [ "292824132082.apps.googleusercontent.com" ],
+      "rosyMethod" : "com.kindhat.service.user.UserEndpoint.getUserByExternalId",
+      "request" : {
+        "parameters" : {
+          "externalId" : {
+            "type" : "string",
+            "required" : true
+          },
+          "externalIdType" : {
+            "enum" : {
+              "Facebook" : {
+              },
+              "Twitter" : {
+              }
+            },
+            "type" : "string",
+            "required" : true
+          }
+        },
+        "body" : "empty"
+      },
+      "response" : {
+        "body" : "autoTemplate(backendResponse)"
+      }
+    },
     "userendpoint.getUser" : {
       "path" : "user/{id}",
       "httpMethod" : "GET",
@@ -92,9 +123,13 @@
             "format" : "date-time"
           },
           "id" : {
-            "$ref" : "Key"
+            "type" : "string",
+            "format" : "int64"
           },
           "name" : {
+            "type" : "string"
+          },
+          "street" : {
             "type" : "string"
           },
           "postalCode" : {
@@ -104,8 +139,7 @@
             "type" : "string"
           },
           "image" : {
-            "type" : "string",
-            "format" : "byte"
+            "type" : "string"
           },
           "email" : {
             "type" : "string"
@@ -114,7 +148,7 @@
             "type" : "boolean"
           },
           "externalIdType" : {
-            "type" : "string"
+            "$ref" : "EnumExternalIdType"
           },
           "externalId" : {
             "type" : "string"
@@ -122,44 +156,23 @@
           "requests" : {
             "type" : "array",
             "items" : {
-              "$ref" : "Key"
+              "type" : "string",
+              "format" : "int64"
             }
           },
           "responses" : {
             "type" : "array",
             "items" : {
-              "$ref" : "Key"
+              "type" : "string",
+              "format" : "int64"
             }
           }
         }
       },
-      "Key" : {
-        "id" : "Key",
-        "type" : "object",
-        "properties" : {
-          "kind" : {
-            "type" : "string"
-          },
-          "appId" : {
-            "type" : "string"
-          },
-          "id" : {
-            "type" : "string",
-            "format" : "int64"
-          },
-          "name" : {
-            "type" : "string"
-          },
-          "parent" : {
-            "$ref" : "Key"
-          },
-          "complete" : {
-            "type" : "boolean"
-          },
-          "namespace" : {
-            "type" : "string"
-          }
-        }
+      "EnumExternalIdType" : {
+        "id" : "EnumExternalIdType",
+        "type" : "string",
+        "enum" : [ "Facebook", "Twitter" ]
       }
     },
     "methods" : {
@@ -175,6 +188,11 @@
         "request" : {
           "$ref" : "User"
         },
+        "response" : {
+          "$ref" : "User"
+        }
+      },
+      "com.kindhat.service.user.UserEndpoint.getUserByExternalId" : {
         "response" : {
           "$ref" : "User"
         }

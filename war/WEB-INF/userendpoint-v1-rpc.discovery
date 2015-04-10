@@ -1,6 +1,6 @@
 {
  "kind": "discovery#rpcDescription",
- "etag": "\"koCc_mmAOJe4d9CoedmJUnZeEcg/PuE4Z2NLm1Di6WWzfMyEiW_OU2E\"",
+ "etag": "\"u_zXkMELIlX4ktyNbM2XKD4vK8E/YMFzcw56IrHK2hWb_NR35ebkPMs\"",
  "discoveryVersion": "v1",
  "id": "userendpoint:v1",
  "name": "userendpoint",
@@ -72,33 +72,17 @@
   }
  },
  "schemas": {
-  "Key": {
-   "id": "Key",
-   "type": "object",
-   "properties": {
-    "appId": {
-     "type": "string"
-    },
-    "complete": {
-     "type": "boolean"
-    },
-    "id": {
-     "type": "string",
-     "format": "int64"
-    },
-    "kind": {
-     "type": "string"
-    },
-    "name": {
-     "type": "string"
-    },
-    "namespace": {
-     "type": "string"
-    },
-    "parent": {
-     "$ref": "Key"
-    }
-   }
+  "EnumExternalIdType": {
+   "id": "EnumExternalIdType",
+   "type": "string",
+   "enum": [
+    "Facebook",
+    "Twitter"
+   ],
+   "enumDescriptions": [
+    "",
+    ""
+   ]
   },
   "User": {
    "id": "User",
@@ -114,14 +98,14 @@
      "type": "string"
     },
     "externalIdType": {
-     "type": "string"
+     "$ref": "EnumExternalIdType"
     },
     "id": {
-     "$ref": "Key"
+     "type": "string",
+     "format": "int64"
     },
     "image": {
-     "type": "string",
-     "format": "byte"
+     "type": "string"
     },
     "name": {
      "type": "string"
@@ -132,14 +116,19 @@
     "requests": {
      "type": "array",
      "items": {
-      "$ref": "Key"
+      "type": "string",
+      "format": "int64"
      }
     },
     "responses": {
      "type": "array",
      "items": {
-      "$ref": "Key"
+      "type": "string",
+      "format": "int64"
      }
+    },
+    "street": {
+     "type": "string"
     },
     "termsAndConditions": {
      "type": "boolean"
@@ -164,6 +153,38 @@
    },
    "parameterOrder": [
     "id"
+   ],
+   "returns": {
+    "$ref": "User"
+   },
+   "scopes": [
+    "https://www.googleapis.com/auth/userinfo.email"
+   ]
+  },
+  "userendpoint.getUserByExternalId": {
+   "id": "userendpoint.getUserByExternalId",
+   "allowGet": true,
+   "parameters": {
+    "externalId": {
+     "type": "string",
+     "required": true
+    },
+    "externalIdType": {
+     "type": "string",
+     "required": true,
+     "enum": [
+      "Facebook",
+      "Twitter"
+     ],
+     "enumDescriptions": [
+      "",
+      ""
+     ]
+    }
+   },
+   "parameterOrder": [
+    "externalId",
+    "externalIdType"
    ],
    "returns": {
     "$ref": "User"

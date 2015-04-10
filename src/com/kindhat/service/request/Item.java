@@ -5,22 +5,22 @@ import java.util.Set;
 
 import javax.jdo.annotations.IdGeneratorStrategy;
 import javax.jdo.annotations.IdentityType;
-import javax.jdo.annotations.Key;
 import javax.jdo.annotations.PersistenceCapable;
 import javax.jdo.annotations.Persistent;
 import javax.jdo.annotations.PrimaryKey;
 
-import com.kindhat.service.common.*;
+import com.google.appengine.datanucleus.annotations.Unowned;
+import com.kindhat.service.common.Entity;
 
 @PersistenceCapable(identityType = IdentityType.APPLICATION)
 public class Item extends Entity {
 	
 	@PrimaryKey
 	@Persistent(valueStrategy = IdGeneratorStrategy.IDENTITY)
-	private Key key;
+	private Long id;
 	
 	@Persistent
-	private Key userId;
+	private Long userId;
 	
 	@Persistent
 	private String item;	
@@ -29,38 +29,36 @@ public class Item extends Entity {
 	private String category;	
 	
 	@Persistent
-	private Integer duration;
-	
-	@Persistent
-	private EnumDuration durationType;
-	
-	@Persistent
 	private String use;
 	
 	@Persistent
 	private Date borrowDate;	
 	
 	@Persistent
+	private Date returnDate;	
+	
+	@Persistent
 	private String message;
 	
 	@Persistent
-	private Set<Key> responses;
+	@Unowned
+	private Set<Long> responses;
 
 	public Item () {}
 
-	public Key getKey() {
-		return key;
+	public Long getId() {
+		return id;
 	}
 
-	public void setKey(Key key) {
-		this.key = key;
+	public void setId(Long id) {
+		this.id = id;
 	}
 	
-	public Key getUserId() {
+	public Long getUserId() {
 		return userId;
 	}
 
-	public void setUserId(Key userId) {
+	public void setUserId(Long userId) {
 		this.userId = userId;
 	}
 	
@@ -80,22 +78,6 @@ public class Item extends Entity {
 		this.category = category;
 	}	
 	
-	public Integer getDuration() {
-		return duration;
-	}
-
-	public void setDuration(Integer duration) {
-		this.duration = duration;
-	}
-	
-	public EnumDuration getDurationType() {
-		return durationType;
-	}
-
-	public void setDurationType(EnumDuration durationType) {
-		this.durationType = durationType;
-	}
-	
 	public String getUse() {
 		return use;
 	}
@@ -112,6 +94,14 @@ public class Item extends Entity {
 		this.borrowDate = borrowDate;
 	}	
 	
+	public Date getReturnDate() {
+		return returnDate;
+	}
+
+	public void setReturnDate(Date returnDate) {
+		this.returnDate = returnDate;
+	}
+	
 	public String getMessage() {
 		return message;
 	}
@@ -120,11 +110,11 @@ public class Item extends Entity {
 		this.message = message;
 	}
 	
-	public Set<Key> getResponses() {
+	public Set<Long> getResponses() {
 		return responses;
 	}
 
-	public void setResponses(Set<Key> responses) {
+	public void setResponses(Set<Long> responses) {
 		this.responses = responses;
 	}
 }

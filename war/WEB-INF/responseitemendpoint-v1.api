@@ -116,27 +116,28 @@
             "type" : "string",
             "format" : "date-time"
           },
-          "key" : {
-            "$ref" : "Key"
+          "id" : {
+            "type" : "string",
+            "format" : "int64"
           },
           "requestId" : {
-            "$ref" : "Key"
+            "type" : "string",
+            "format" : "int64"
           },
           "userId" : {
-            "$ref" : "Key"
+            "type" : "string",
+            "format" : "int64"
           },
           "message" : {
             "type" : "string"
           },
           "confirmed" : {
             "type" : "boolean"
+          },
+          "key" : {
+            "type" : "string",
+            "format" : "int64"
           }
-        }
-      },
-      "Key" : {
-        "id" : "Key",
-        "type" : "object",
-        "properties" : {
         }
       },
       "CollectionResponse_Item" : {
