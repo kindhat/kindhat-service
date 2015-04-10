@@ -1,0 +1,97 @@
+{
+  "extends" : "thirdParty.api",
+  "abstract" : false,
+  "root" : "https://kindhat-service.appspot.com/_ah/api",
+  "name" : "addressendpoint",
+  "version" : "v1",
+  "defaultVersion" : false,
+  "adapter" : {
+    "bns" : "https://kindhat-service.appspot.com/_ah/spi",
+    "deadline" : 65.0,
+    "type" : "lily"
+  },
+  "auth" : {
+    "allowCookieAuth" : false
+  },
+  "frontendLimits" : {
+    "unregisteredUserQps" : -1,
+    "unregisteredQps" : -1,
+    "unregisteredDaily" : -1,
+    "rules" : [ ]
+  },
+  "cacheControl" : {
+    "type" : "no-cache",
+    "maxAge" : 0
+  },
+  "ownerDomain" : "kindhat.com",
+  "ownerName" : "kindhat.com",
+  "packagePath" : "service.address",
+  "methods" : {
+    "addressendpoint.verifyAddress" : {
+      "path" : "verifyAddress/{street}/{postalCode}",
+      "httpMethod" : "GET",
+      "authLevel" : "NONE",
+      "scopes" : [ "https://www.googleapis.com/auth/userinfo.email" ],
+      "audiences" : [ ],
+      "clientIds" : [ "292824132082.apps.googleusercontent.com" ],
+      "rosyMethod" : "com.kindhat.sevice.address.AddressEndpoint.verifyAddress",
+      "request" : {
+        "parameters" : {
+          "street" : {
+            "type" : "string",
+            "required" : true
+          },
+          "postalCode" : {
+            "type" : "string",
+            "required" : true
+          }
+        },
+        "body" : "empty"
+      },
+      "response" : {
+        "body" : "autoTemplate(backendResponse)"
+      }
+    }
+  },
+  "descriptor" : {
+    "schemas" : {
+      "Address" : {
+        "id" : "Address",
+        "type" : "object",
+        "properties" : {
+          "street" : {
+            "type" : "string"
+          },
+          "city" : {
+            "type" : "string"
+          },
+          "state" : {
+            "type" : "string"
+          },
+          "postalCode" : {
+            "type" : "string"
+          }
+        }
+      },
+      "AddressCollection" : {
+        "id" : "AddressCollection",
+        "type" : "object",
+        "properties" : {
+          "items" : {
+            "type" : "array",
+            "items" : {
+              "$ref" : "Address"
+            }
+          }
+        }
+      }
+    },
+    "methods" : {
+      "com.kindhat.sevice.address.AddressEndpoint.verifyAddress" : {
+        "response" : {
+          "$ref" : "AddressCollection"
+        }
+      }
+    }
+  }
+}
