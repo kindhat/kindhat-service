@@ -1,6 +1,6 @@
 {
  "kind": "discovery#restDescription",
- "etag": "\"u_zXkMELIlX4ktyNbM2XKD4vK8E/jFHGK5F-GrMKuArmdMgLTHt4YJ8\"",
+ "etag": "\"u_zXkMELIlX4ktyNbM2XKD4vK8E/8cfebNTGHrdHqCqFPtdb_c64u6w\"",
  "discoveryVersion": "v1",
  "id": "addressendpoint:v1",
  "name": "addressendpoint",
@@ -76,7 +76,29 @@
  "schemas": {
   "Address": {
    "id": "Address",
-   "type": "object"
+   "type": "object",
+   "properties": {
+    "city": {
+     "type": "string"
+    },
+    "latitude": {
+     "type": "number",
+     "format": "double"
+    },
+    "longitude": {
+     "type": "number",
+     "format": "double"
+    },
+    "postalCode": {
+     "type": "string"
+    },
+    "state": {
+     "type": "string"
+    },
+    "street": {
+     "type": "string"
+    }
+   }
   },
   "AddressCollection": {
    "id": "AddressCollection",

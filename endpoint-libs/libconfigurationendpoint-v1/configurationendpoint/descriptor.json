@@ -1,13 +1,13 @@
 {
   "files": [
     {
-      "downloadUrl": "/downloads/configurationendpoint/v1/20150408144553/java/1.18.0-rc/kindhat.com-configurationendpoint-v1-20150408144553-java-1.18.0-rc-sources.jar", 
-      "path": "kindhat.com-configurationendpoint-v1-20150408144553-java-1.18.0-rc-sources.jar", 
+      "downloadUrl": "/downloads/configurationendpoint/v1/20150427215506/java/1.18.0-rc/kindhat.com-configurationendpoint-v1-20150427215506-java-1.18.0-rc-sources.jar", 
+      "path": "kindhat.com-configurationendpoint-v1-20150427215506-java-1.18.0-rc-sources.jar", 
       "type": "source", 
-      "timestamp": "2015-04-08 14:45"
+      "timestamp": "2015-04-27 21:55"
     }, 
     {
-      "path": "kindhat.com-configurationendpoint-v1-20150408144553-java-1.18.0-rc.jar.properties", 
+      "path": "kindhat.com-configurationendpoint-v1-20150427215506-java-1.18.0-rc.jar.properties", 
       "type": "android.properties"
     }
   ], 
@@ -675,5 +675,5 @@
   "packagePath": "service.configuration", 
   "language_version": "1.18.0-rc", 
   "id": "configurationendpoint:v1", 
-  "revision": 20150408144553
+  "revision": 20150427215506
 }

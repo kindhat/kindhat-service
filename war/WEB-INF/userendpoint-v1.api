@@ -135,6 +135,33 @@
           "postalCode" : {
             "type" : "string"
           },
+          "longitude" : {
+            "type" : "number"
+          },
+          "latitude" : {
+            "type" : "number"
+          },
+          "geoHash1" : {
+            "type" : "string"
+          },
+          "geoHash2" : {
+            "type" : "string"
+          },
+          "geoHash3" : {
+            "type" : "string"
+          },
+          "geoHash4" : {
+            "type" : "string"
+          },
+          "geoHash5" : {
+            "type" : "string"
+          },
+          "geoHash6" : {
+            "type" : "string"
+          },
+          "geoHash7" : {
+            "type" : "string"
+          },
           "aboutMe" : {
             "type" : "string"
           },

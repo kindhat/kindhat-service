@@ -70,6 +70,12 @@
           },
           "postalCode" : {
             "type" : "string"
+          },
+          "longitude" : {
+            "type" : "number"
+          },
+          "latitude" : {
+            "type" : "number"
           }
         }
       },

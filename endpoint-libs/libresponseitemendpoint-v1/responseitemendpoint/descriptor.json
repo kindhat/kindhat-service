@@ -1,13 +1,13 @@
 {
   "files": [
     {
-      "downloadUrl": "/downloads/responseitemendpoint/v1/20150408144617/java/1.18.0-rc/kindhat.com-responseitemendpoint-v1-20150408144617-java-1.18.0-rc-sources.jar", 
-      "path": "kindhat.com-responseitemendpoint-v1-20150408144617-java-1.18.0-rc-sources.jar", 
+      "downloadUrl": "/downloads/responseitemendpoint/v1/20150427215558/java/1.18.0-rc/kindhat.com-responseitemendpoint-v1-20150427215558-java-1.18.0-rc-sources.jar", 
+      "path": "kindhat.com-responseitemendpoint-v1-20150427215558-java-1.18.0-rc-sources.jar", 
       "type": "source", 
-      "timestamp": "2015-04-08 14:46"
+      "timestamp": "2015-04-27 21:55"
     }, 
     {
-      "path": "kindhat.com-responseitemendpoint-v1-20150408144617-java-1.18.0-rc.jar.properties", 
+      "path": "kindhat.com-responseitemendpoint-v1-20150427215558-java-1.18.0-rc.jar.properties", 
       "type": "android.properties"
     }
   ], 
@@ -675,5 +675,5 @@
   "packagePath": "service.response.item", 
   "language_version": "1.18.0-rc", 
   "id": "responseitemendpoint:v1", 
-  "revision": 20150408144617
+  "revision": 20150427215558
 }
