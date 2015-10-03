@@ -48,6 +48,37 @@
         "body" : "autoTemplate(backendResponse)"
       }
     },
+    "userendpoint.getUserByExternalId" : {
+      "path" : "user/{externalId}/{externalIdType}",
+      "httpMethod" : "GET",
+      "authLevel" : "NONE",
+      "scopes" : [ "https://www.googleapis.com/auth/userinfo.email" ],
+      "audiences" : [ ],
+      "clientIds" : [ "292824132082.apps.googleusercontent.com" ],
+      "rosyMethod" : "com.kindhat.service.user.UserEndpoint.getUserByExternalId",
+      "request" : {
+        "parameters" : {
+          "externalId" : {
+            "type" : "string",
+            "required" : true
+          },
+          "externalIdType" : {
+            "enum" : {
+              "Facebook" : {
+              },
+              "Twitter" : {
+              }
+            },
+            "type" : "string",
+            "required" : true
+          }
+        },
+        "body" : "empty"
+      },
+      "response" : {
+        "body" : "autoTemplate(backendResponse)"
+      }
+    },
     "userendpoint.insertUser" : {
       "path" : "user",
       "httpMethod" : "POST",
@@ -79,37 +110,6 @@
       "response" : {
         "body" : "autoTemplate(backendResponse)"
       }
-    },
-    "userendpoint.getUserByExternalId" : {
-      "path" : "user/{externalId}/{externalIdType}",
-      "httpMethod" : "GET",
-      "authLevel" : "NONE",
-      "scopes" : [ "https://www.googleapis.com/auth/userinfo.email" ],
-      "audiences" : [ ],
-      "clientIds" : [ "292824132082.apps.googleusercontent.com" ],
-      "rosyMethod" : "com.kindhat.service.user.UserEndpoint.getUserByExternalId",
-      "request" : {
-        "parameters" : {
-          "externalId" : {
-            "type" : "string",
-            "required" : true
-          },
-          "externalIdType" : {
-            "enum" : {
-              "Facebook" : {
-              },
-              "Twitter" : {
-              }
-            },
-            "type" : "string",
-            "required" : true
-          }
-        },
-        "body" : "empty"
-      },
-      "response" : {
-        "body" : "autoTemplate(backendResponse)"
-      }
     }
   },
   "descriptor" : {
@@ -133,6 +133,33 @@
             "type" : "string"
           },
           "postalCode" : {
+            "type" : "string"
+          },
+          "longitude" : {
+            "type" : "number"
+          },
+          "latitude" : {
+            "type" : "number"
+          },
+          "geoHash1" : {
+            "type" : "string"
+          },
+          "geoHash2" : {
+            "type" : "string"
+          },
+          "geoHash3" : {
+            "type" : "string"
+          },
+          "geoHash4" : {
+            "type" : "string"
+          },
+          "geoHash5" : {
+            "type" : "string"
+          },
+          "geoHash6" : {
+            "type" : "string"
+          },
+          "geoHash7" : {
             "type" : "string"
           },
           "aboutMe" : {
@@ -181,6 +208,11 @@
           "$ref" : "User"
         }
       },
+      "com.kindhat.service.user.UserEndpoint.getUserByExternalId" : {
+        "response" : {
+          "$ref" : "User"
+        }
+      },
       "com.kindhat.service.user.UserEndpoint.insertUser" : {
         "request" : {
           "$ref" : "User"
@@ -193,11 +225,6 @@
         "request" : {
           "$ref" : "User"
         },
-        "response" : {
-          "$ref" : "User"
-        }
-      },
-      "com.kindhat.service.user.UserEndpoint.getUserByExternalId" : {
         "response" : {
           "$ref" : "User"
         }

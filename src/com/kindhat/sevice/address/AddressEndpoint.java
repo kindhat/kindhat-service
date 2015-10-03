@@ -63,6 +63,8 @@ public class AddressEndpoint {
 					address.Map().put(type, component.ShortName());
 				}
 			}
+			address.setLatitude(result.Geometry().Location().Latitude());
+			address.setLongitude(result.Geometry().Location().Longitude());
 			addresses.add(address);
 		}
 		

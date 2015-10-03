@@ -5,7 +5,7 @@
     <servlet-class>com.google.api.server.spi.SystemServiceServlet</servlet-class>
     <init-param>
       <param-name>services</param-name>
-      <param-value>com.kindhat.service.configuration.ConfigurationEndpoint,com.kindhat.service.request.ItemEndpoint,com.kindhat.service.response.ItemEndpoint,com.kindhat.service.user.UserEndpoint,com.kindhat.sevice.address.AddressEndpoint</param-value>
+      <param-value>com.kindhat.service.configuration.ConfigurationEndpoint,com.kindhat.service.response.ItemEndpoint,com.kindhat.service.user.UserEndpoint,com.kindhat.sevice.address.AddressEndpoint</param-value>
     </init-param>
   </servlet>
 

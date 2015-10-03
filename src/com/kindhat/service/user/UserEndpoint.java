@@ -4,6 +4,7 @@ import java.util.List;
 
 import com.kindhat.service.common.PMF;
 import com.kindhat.service.common.EnumExternalIdType;
+import com.kindhat.service.geohash.GeoHash;
 import com.google.api.server.spi.config.Api;
 import com.google.api.server.spi.config.ApiMethod;
 import com.google.api.server.spi.config.ApiNamespace;
@@ -19,6 +20,8 @@ import javax.jdo.Query;
 							  ownerName = "kindhat.com", 
 							  packagePath = "service.user"))
 public class UserEndpoint {
+	
+	private static final int geoHashPercision = 7;
 
 	/**
 	 * This method gets the entity having primary key id. It uses HTTP GET method.
@@ -87,6 +90,10 @@ public class UserEndpoint {
 					throw new EntityExistsException("Object already exists");
 				}
 			}
+			
+			//set the user's geohash
+			user = setUserGeoHash(user);
+			
 			mgr.makePersistent(user);
 		} finally {
 			mgr.close();
@@ -109,6 +116,10 @@ public class UserEndpoint {
 			if (!containsUser(user)) {
 				throw new EntityNotFoundException("Object does not exist");
 			}
+			
+			//set the user's geohash
+			user = setUserGeoHash(user);
+			
 			mgr.makePersistent(user);
 		} finally {
 			mgr.close();
@@ -127,6 +138,24 @@ public class UserEndpoint {
 			mgr.close();
 		}
 		return contains;
+	}
+	
+	private User setUserGeoHash(User user) {
+		String geoHash = GeoHash.geoHashStringWithCharacterPrecision(user.getLatitude(),
+				user.getLongitude(),
+				geoHashPercision);
+		
+		//i am lame. i could not think of a slicker way
+		//to do this task without using reflection (if that even exists in java...)
+		user.setGeoHash1(geoHash.substring(0, 0));
+		user.setGeoHash2(geoHash.substring(0, 1));
+		user.setGeoHash3(geoHash.substring(0, 2));
+		user.setGeoHash4(geoHash.substring(0, 3));
+		user.setGeoHash5(geoHash.substring(0, 4));
+		user.setGeoHash6(geoHash.substring(0, 5));
+		user.setGeoHash7(geoHash.substring(0, 6));
+		
+		return user;
 	}
 
 	private static PersistenceManager getPersistenceManager() {

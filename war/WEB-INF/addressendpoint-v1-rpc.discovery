@@ -1,6 +1,6 @@
 {
  "kind": "discovery#rpcDescription",
- "etag": "\"u_zXkMELIlX4ktyNbM2XKD4vK8E/szivPjIWFao1pIIX6QzeHA11ofM\"",
+ "etag": "\"u_zXkMELIlX4ktyNbM2XKD4vK8E/Ykok-1lZvWKBCxvtFaNk3gv5I5w\"",
  "discoveryVersion": "v1",
  "id": "addressendpoint:v1",
  "name": "addressendpoint",
@@ -78,6 +78,14 @@
    "properties": {
     "city": {
      "type": "string"
+    },
+    "latitude": {
+     "type": "number",
+     "format": "double"
+    },
+    "longitude": {
+     "type": "number",
+     "format": "double"
     },
     "postalCode": {
      "type": "string"
