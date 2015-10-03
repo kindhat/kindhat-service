@@ -27,17 +27,22 @@
   "ownerName" : "kindhat.com",
   "packagePath" : "service.request.item",
   "methods" : {
-    "requestitemendpoint.updateItem" : {
-      "path" : "item",
-      "httpMethod" : "PUT",
+    "requestitemendpoint.getItem" : {
+      "path" : "item/{id}",
+      "httpMethod" : "GET",
       "authLevel" : "NONE",
       "scopes" : [ "https://www.googleapis.com/auth/userinfo.email" ],
       "audiences" : [ ],
       "clientIds" : [ "292824132082.apps.googleusercontent.com" ],
-      "rosyMethod" : "com.kindhat.service.request.ItemEndpoint.updateItem",
+      "rosyMethod" : "com.kindhat.service.request.ItemEndpoint.getItem",
       "request" : {
-        "body" : "autoTemplate(backendRequest)",
-        "bodyName" : "resource"
+        "parameters" : {
+          "id" : {
+            "type" : "int64",
+            "required" : true
+          }
+        },
+        "body" : "empty"
       },
       "response" : {
         "body" : "autoTemplate(backendResponse)"
@@ -59,22 +64,17 @@
         "body" : "autoTemplate(backendResponse)"
       }
     },
-    "requestitemendpoint.getItem" : {
-      "path" : "item/{id}",
-      "httpMethod" : "GET",
+    "requestitemendpoint.updateItem" : {
+      "path" : "item",
+      "httpMethod" : "PUT",
       "authLevel" : "NONE",
       "scopes" : [ "https://www.googleapis.com/auth/userinfo.email" ],
       "audiences" : [ ],
       "clientIds" : [ "292824132082.apps.googleusercontent.com" ],
-      "rosyMethod" : "com.kindhat.service.request.ItemEndpoint.getItem",
+      "rosyMethod" : "com.kindhat.service.request.ItemEndpoint.updateItem",
       "request" : {
-        "parameters" : {
-          "id" : {
-            "type" : "int64",
-            "required" : true
-          }
-        },
-        "body" : "empty"
+        "body" : "autoTemplate(backendRequest)",
+        "bodyName" : "resource"
       },
       "response" : {
         "body" : "autoTemplate(backendResponse)"
@@ -170,10 +170,7 @@
       }
     },
     "methods" : {
-      "com.kindhat.service.request.ItemEndpoint.updateItem" : {
-        "request" : {
-          "$ref" : "Item"
-        },
+      "com.kindhat.service.request.ItemEndpoint.getItem" : {
         "response" : {
           "$ref" : "Item"
         }
@@ -186,7 +183,10 @@
           "$ref" : "Item"
         }
       },
-      "com.kindhat.service.request.ItemEndpoint.getItem" : {
+      "com.kindhat.service.request.ItemEndpoint.updateItem" : {
+        "request" : {
+          "$ref" : "Item"
+        },
         "response" : {
           "$ref" : "Item"
         }

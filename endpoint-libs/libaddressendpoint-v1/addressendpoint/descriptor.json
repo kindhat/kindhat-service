@@ -1,13 +1,13 @@
 {
   "files": [
     {
-      "downloadUrl": "/downloads/addressendpoint/v1/20150408144651/java/1.18.0-rc/kindhat.com-addressendpoint-v1-20150408144651-java-1.18.0-rc-sources.jar", 
-      "path": "kindhat.com-addressendpoint-v1-20150408144651-java-1.18.0-rc-sources.jar", 
+      "downloadUrl": "/downloads/addressendpoint/v1/20150516181732/java/1.18.0-rc/kindhat.com-addressendpoint-v1-20150516181732-java-1.18.0-rc-sources.jar", 
+      "path": "kindhat.com-addressendpoint-v1-20150516181732-java-1.18.0-rc-sources.jar", 
       "type": "source", 
-      "timestamp": "2015-04-08 14:46"
+      "timestamp": "2015-05-16 18:17"
     }, 
     {
-      "path": "kindhat.com-addressendpoint-v1-20150408144651-java-1.18.0-rc.jar.properties", 
+      "path": "kindhat.com-addressendpoint-v1-20150516181732-java-1.18.0-rc.jar.properties", 
       "type": "android.properties"
     }
   ], 
@@ -675,5 +675,5 @@
   "packagePath": "service.address", 
   "language_version": "1.18.0-rc", 
   "id": "addressendpoint:v1", 
-  "revision": 20150408144651
+  "revision": 20150516181732
 }

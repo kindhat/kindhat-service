@@ -27,6 +27,42 @@
   "ownerName" : "kindhat.com",
   "packagePath" : "service.configuration",
   "methods" : {
+    "configurationendpoint.getConfiguration" : {
+      "path" : "configuration/{id}",
+      "httpMethod" : "GET",
+      "authLevel" : "NONE",
+      "scopes" : [ "https://www.googleapis.com/auth/userinfo.email" ],
+      "audiences" : [ ],
+      "clientIds" : [ "292824132082.apps.googleusercontent.com" ],
+      "rosyMethod" : "com.kindhat.service.configuration.ConfigurationEndpoint.getConfiguration",
+      "request" : {
+        "parameters" : {
+          "id" : {
+            "type" : "int64",
+            "required" : true
+          }
+        },
+        "body" : "empty"
+      },
+      "response" : {
+        "body" : "autoTemplate(backendResponse)"
+      }
+    },
+    "configurationendpoint.getAllConfiguration" : {
+      "path" : "configurationcollection",
+      "httpMethod" : "GET",
+      "authLevel" : "NONE",
+      "scopes" : [ "https://www.googleapis.com/auth/userinfo.email" ],
+      "audiences" : [ ],
+      "clientIds" : [ "292824132082.apps.googleusercontent.com" ],
+      "rosyMethod" : "com.kindhat.service.configuration.ConfigurationEndpoint.getAllConfiguration",
+      "request" : {
+        "body" : "empty"
+      },
+      "response" : {
+        "body" : "autoTemplate(backendResponse)"
+      }
+    },
     "configurationendpoint.insertConfiguration" : {
       "path" : "configuration",
       "httpMethod" : "POST",
@@ -35,22 +71,6 @@
       "audiences" : [ ],
       "clientIds" : [ "292824132082.apps.googleusercontent.com" ],
       "rosyMethod" : "com.kindhat.service.configuration.ConfigurationEndpoint.insertConfiguration",
-      "request" : {
-        "body" : "autoTemplate(backendRequest)",
-        "bodyName" : "resource"
-      },
-      "response" : {
-        "body" : "autoTemplate(backendResponse)"
-      }
-    },
-    "configurationendpoint.updateConfiguration" : {
-      "path" : "configuration",
-      "httpMethod" : "PUT",
-      "authLevel" : "NONE",
-      "scopes" : [ "https://www.googleapis.com/auth/userinfo.email" ],
-      "audiences" : [ ],
-      "clientIds" : [ "292824132082.apps.googleusercontent.com" ],
-      "rosyMethod" : "com.kindhat.service.configuration.ConfigurationEndpoint.updateConfiguration",
       "request" : {
         "body" : "autoTemplate(backendRequest)",
         "bodyName" : "resource"
@@ -84,37 +104,17 @@
         "body" : "autoTemplate(backendResponse)"
       }
     },
-    "configurationendpoint.getAllConfiguration" : {
-      "path" : "configurationcollection",
-      "httpMethod" : "GET",
+    "configurationendpoint.updateConfiguration" : {
+      "path" : "configuration",
+      "httpMethod" : "PUT",
       "authLevel" : "NONE",
       "scopes" : [ "https://www.googleapis.com/auth/userinfo.email" ],
       "audiences" : [ ],
       "clientIds" : [ "292824132082.apps.googleusercontent.com" ],
-      "rosyMethod" : "com.kindhat.service.configuration.ConfigurationEndpoint.getAllConfiguration",
+      "rosyMethod" : "com.kindhat.service.configuration.ConfigurationEndpoint.updateConfiguration",
       "request" : {
-        "body" : "empty"
-      },
-      "response" : {
-        "body" : "autoTemplate(backendResponse)"
-      }
-    },
-    "configurationendpoint.getConfiguration" : {
-      "path" : "configuration/{id}",
-      "httpMethod" : "GET",
-      "authLevel" : "NONE",
-      "scopes" : [ "https://www.googleapis.com/auth/userinfo.email" ],
-      "audiences" : [ ],
-      "clientIds" : [ "292824132082.apps.googleusercontent.com" ],
-      "rosyMethod" : "com.kindhat.service.configuration.ConfigurationEndpoint.getConfiguration",
-      "request" : {
-        "parameters" : {
-          "id" : {
-            "type" : "int64",
-            "required" : true
-          }
-        },
-        "body" : "empty"
+        "body" : "autoTemplate(backendRequest)",
+        "bodyName" : "resource"
       },
       "response" : {
         "body" : "autoTemplate(backendResponse)"
@@ -143,6 +143,18 @@
           }
         }
       },
+      "ConfigurationCollection" : {
+        "id" : "ConfigurationCollection",
+        "type" : "object",
+        "properties" : {
+          "items" : {
+            "type" : "array",
+            "items" : {
+              "$ref" : "Configuration"
+            }
+          }
+        }
+      },
       "CollectionResponse_Configuration" : {
         "id" : "CollectionResponse_Configuration",
         "type" : "object",
@@ -157,30 +169,20 @@
             "type" : "string"
           }
         }
-      },
-      "ConfigurationCollection" : {
-        "id" : "ConfigurationCollection",
-        "type" : "object",
-        "properties" : {
-          "items" : {
-            "type" : "array",
-            "items" : {
-              "$ref" : "Configuration"
-            }
-          }
-        }
       }
     },
     "methods" : {
-      "com.kindhat.service.configuration.ConfigurationEndpoint.insertConfiguration" : {
-        "request" : {
-          "$ref" : "Configuration"
-        },
+      "com.kindhat.service.configuration.ConfigurationEndpoint.getConfiguration" : {
         "response" : {
           "$ref" : "Configuration"
         }
       },
-      "com.kindhat.service.configuration.ConfigurationEndpoint.updateConfiguration" : {
+      "com.kindhat.service.configuration.ConfigurationEndpoint.getAllConfiguration" : {
+        "response" : {
+          "$ref" : "ConfigurationCollection"
+        }
+      },
+      "com.kindhat.service.configuration.ConfigurationEndpoint.insertConfiguration" : {
         "request" : {
           "$ref" : "Configuration"
         },
@@ -193,12 +195,10 @@
           "$ref" : "CollectionResponse_Configuration"
         }
       },
-      "com.kindhat.service.configuration.ConfigurationEndpoint.getAllConfiguration" : {
-        "response" : {
-          "$ref" : "ConfigurationCollection"
-        }
-      },
-      "com.kindhat.service.configuration.ConfigurationEndpoint.getConfiguration" : {
+      "com.kindhat.service.configuration.ConfigurationEndpoint.updateConfiguration" : {
+        "request" : {
+          "$ref" : "Configuration"
+        },
         "response" : {
           "$ref" : "Configuration"
         }

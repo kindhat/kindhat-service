@@ -27,6 +27,27 @@
   "ownerName" : "kindhat.com",
   "packagePath" : "service.user",
   "methods" : {
+    "userendpoint.getUser" : {
+      "path" : "user/{id}",
+      "httpMethod" : "GET",
+      "authLevel" : "NONE",
+      "scopes" : [ "https://www.googleapis.com/auth/userinfo.email" ],
+      "audiences" : [ ],
+      "clientIds" : [ "292824132082.apps.googleusercontent.com" ],
+      "rosyMethod" : "com.kindhat.service.user.UserEndpoint.getUser",
+      "request" : {
+        "parameters" : {
+          "id" : {
+            "type" : "int64",
+            "required" : true
+          }
+        },
+        "body" : "empty"
+      },
+      "response" : {
+        "body" : "autoTemplate(backendResponse)"
+      }
+    },
     "userendpoint.insertUser" : {
       "path" : "user",
       "httpMethod" : "POST",
@@ -81,27 +102,6 @@
               }
             },
             "type" : "string",
-            "required" : true
-          }
-        },
-        "body" : "empty"
-      },
-      "response" : {
-        "body" : "autoTemplate(backendResponse)"
-      }
-    },
-    "userendpoint.getUser" : {
-      "path" : "user/{id}",
-      "httpMethod" : "GET",
-      "authLevel" : "NONE",
-      "scopes" : [ "https://www.googleapis.com/auth/userinfo.email" ],
-      "audiences" : [ ],
-      "clientIds" : [ "292824132082.apps.googleusercontent.com" ],
-      "rosyMethod" : "com.kindhat.service.user.UserEndpoint.getUser",
-      "request" : {
-        "parameters" : {
-          "id" : {
-            "type" : "int64",
             "required" : true
           }
         },
@@ -176,6 +176,11 @@
       }
     },
     "methods" : {
+      "com.kindhat.service.user.UserEndpoint.getUser" : {
+        "response" : {
+          "$ref" : "User"
+        }
+      },
       "com.kindhat.service.user.UserEndpoint.insertUser" : {
         "request" : {
           "$ref" : "User"
@@ -193,11 +198,6 @@
         }
       },
       "com.kindhat.service.user.UserEndpoint.getUserByExternalId" : {
-        "response" : {
-          "$ref" : "User"
-        }
-      },
-      "com.kindhat.service.user.UserEndpoint.getUser" : {
         "response" : {
           "$ref" : "User"
         }
